@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic offline demonstration",
+  "cases": [
+    {
+      "case_id": "synthetic-supported",
+      "verdict": "S"
+    },
+    {
+      "case_id": "synthetic-conflict",
+      "verdict": "C"
+    },
+    {
+      "case_id": "synthetic-missing",
+      "verdict": "U"
+    }
+  ],
+  "resilience": {
+    "judge_model": "synthetic-backup",
+    "verdict": "C",
+    "events": [
+      {
+        "attempt": 1,
+        "status": 429,
+        "retry_delay_s": 0.25
+      },
+      {
+        "attempt": 2,
+        "status": 503,
+        "retry_delay_s": 0.5
+      },
+      {
+        "attempt": 3,
+        "status": 503,
+        "retry_delay_s": 1.0
+      },
+      {
+        "attempt": 4,
+        "status": 503,
+        "retry_delay_s": null
+      },
+      {
+        "event": "fallback",
+        "to": "synthetic-backup"
+      }
+    ],
+    "planned_waits_s": [
+      0.25,
+      0.5,
+      1.0
+    ]
+  },
+  "context": {
+    "input_bytes": 11400,
+    "budget_bytes": 4096,
+    "state": "context_overflow"
+  }
+}
