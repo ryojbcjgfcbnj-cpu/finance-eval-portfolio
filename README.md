@@ -26,3 +26,7 @@ The public examples are synthetic. This repository demonstrates engineering beha
 ## 中文说明
 
 这是「较真一下」的合成数据评测示例。可本地运行四项回归测试，查看证据不足、限流重试、备用路径和超长输入如何进入结构化报告。示例全部为合成数据，长文本使用 UTF-8 字节预算。
+
+## China ETF Risk Lab
+
+A reproducible volatility forecasting and portfolio risk study using historical China ETF data, with a custom QLIKE solver and walk-forward evaluation. [Read the study](china-etf-risk-lab/README.md).

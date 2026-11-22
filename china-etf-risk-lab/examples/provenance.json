@@ -1,0 +1,100 @@
+{
+  "data": {
+    "source": "Yahoo Finance chart API",
+    "field": "adjclose",
+    "market": "China mainland exchange-listed ETFs",
+    "currency": "CNY",
+    "assets": {
+      "510300.SS": "华泰柏瑞沪深300ETF",
+      "510500.SS": "南方中证500ETF",
+      "159915.SZ": "易方达创业板ETF",
+      "510880.SS": "华泰柏瑞上证红利ETF",
+      "518880.SS": "华安黄金ETF",
+      "511010.SS": "国泰上证5年期国债ETF"
+    },
+    "benchmark": "510300.SS",
+    "rows": 2674,
+    "first_date": "2014-01-02",
+    "last_date": "2024-12-31",
+    "snapshots": [
+      {
+        "symbol": "510300.SS",
+        "name": "华泰柏瑞沪深300ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/510300.SS?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:25.711836+00:00",
+        "sha256": "6e27cd71adc4a20078b249b45c9888baffa7885270206ec03b1620cc3367f721",
+        "rows": 2674
+      },
+      {
+        "symbol": "510500.SS",
+        "name": "南方中证500ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/510500.SS?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:29.641198+00:00",
+        "sha256": "ede11d1045149911aabe7d8e382f8aa7a21e3eedbde28b1678ca94cf25b48938",
+        "rows": 2674
+      },
+      {
+        "symbol": "159915.SZ",
+        "name": "易方达创业板ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/159915.SZ?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:33.188697+00:00",
+        "sha256": "44fa62e3b30ba8dfd422ff7d6bf9370dc3f4ce8e704ce5338bbd5b6b99bcda8f",
+        "rows": 2674
+      },
+      {
+        "symbol": "510880.SS",
+        "name": "华泰柏瑞上证红利ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/510880.SS?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:37.815307+00:00",
+        "sha256": "69e79c31cb62ba5a6945165ae70dadcd077631ed12cd95dee7c94016be203325",
+        "rows": 2674
+      },
+      {
+        "symbol": "518880.SS",
+        "name": "华安黄金ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/518880.SS?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:43.049941+00:00",
+        "sha256": "4fdb48766bda11a657ce5445f4312621b8caaf2b7e31fb22d1066cbe01418c89",
+        "rows": 2674
+      },
+      {
+        "symbol": "511010.SS",
+        "name": "国泰上证5年期国债ETF",
+        "currency": "CNY",
+        "source": "Yahoo Finance chart API",
+        "price_field": "adjclose",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/511010.SS?period1=1388534400&period2=1735689600&interval=1d&events=div%2Csplits",
+        "retrieved_at_utc": "2026-11-22T18:53:47.187419+00:00",
+        "sha256": "4e4f1bfa7625da8674fba1b460909b75090f1d08702f55c1fad490fda7db77ad",
+        "rows": 2674
+      }
+    ]
+  },
+  "experiment": {
+    "cost_bps_per_side": 5,
+    "rebalance_trading_days": 21,
+    "selection": "3-year Sharpe(rf=0) minus 2 * max_drawdown",
+    "candidate_count": 9,
+    "volatility_target": 0.1,
+    "final_test": [
+      "2023-01-01",
+      "2025-01-01"
+    ],
+    "engine_sha256": "291c426771ed57cc0a4c4e2dd4fe7e642e1ecbe2e6bfa2cd0936995b7d221639"
+  }
+}
