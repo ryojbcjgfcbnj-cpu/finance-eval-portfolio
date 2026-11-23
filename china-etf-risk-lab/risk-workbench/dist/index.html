@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111c31">
+  <meta name="description" content="基于历史市场快照的中国 ETF 组合风险分析、情景压力测试与模型验证。">
+  <title>中国 ETF 组合风险工作台</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="snapshot.js"></script>
+  <script defer src="risk-core.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="top"><div class="wrap header"><a class="brand" href="#top"><span class="mark" aria-hidden="true">◈</span> 组合风控 <small>ETF RISK LAB</small></a><a class="methods" href="https://github.com/ryojbcjgfcbnj-cpu/finance-eval-portfolio/blob/main/china-etf-risk-lab/RISK_METHODS.md">研究方法</a></div></header>
+  <main class="wrap" id="top">
+    <section class="hero"><div><h1>中国 ETF 组合风险工作台</h1><p>录入待审组合，检查波动率限额、风险集中度与压力情景损益。</p></div><button id="download" class="secondary">导出风险简报</button></section>
+    <div class="context"><span><i></i> 历史行情快照</span><span id="date-label"></span><span>人民币 · 年化风险</span></div>
+    <nav aria-label="视图" class="tabs"><button type="button" data-view="portfolio" aria-pressed="true">组合审查</button><button type="button" data-view="validation" aria-pressed="false">模型验证</button></nav>
+    <section id="portfolio">
+      <div class="controls panel"><label>评估日期<select id="date"></select></label><label>预测模型<select id="model"></select></label><label>组合净值（元）<input id="nav" type="number" min="1" step="10000" value="10000000"></label><label>年化波动率限额（%）<input id="target" type="number" min="0.1" max="100" step="0.1" value="10"></label></div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div class="kpis" aria-live="polite">
+        <article class="panel kpi"><span>预测年化波动率</span><strong id="vol">—</strong><small id="limit">—</small></article>
+        <article class="panel kpi"><span>资产总仓位</span><strong id="exposure">—</strong><small id="cash">—</small></article>
+        <article class="panel kpi"><span>压力情景损益</span><strong id="pnl">—</strong><small id="pnl-percent">—</small></article>
+        <article class="panel kpi"><span>主要风险来源</span><strong id="largest">—</strong><small id="largest-share">—</small></article>
+      </div>
+      <div class="split">
+        <section class="panel editable"><div class="section-heading"><div><h2>组合持仓</h2><p>调整目标权重，剩余部分按现金计。</p></div><label class="inline-label">预设<select id="preset"><option value="balanced">股债金组合</option><option value="equal">六资产等权</option><option value="equity">股票偏重</option><option value="custom" disabled>自定义</option></select></label></div>
+        <div class="scroll"><table><thead><tr><th>资产</th><th>权重（%）</th><th>预测波动率</th><th>风险贡献</th></tr></thead><tbody id="positions"></tbody></table></div></section>
+        <section class="panel stress"><div class="section-heading"><div><h2>情景压力测试</h2><p>编辑各资产的一次性价格冲击。</p></div><label class="inline-label">情景<select id="scenario"><option value="equity">股票回撤</option><option value="rates">利率上行</option><option value="gold">黄金回调</option><option value="custom" disabled>自定义</option></select></label></div>
+        <div class="scroll"><table><thead><tr><th>资产</th><th>冲击（%）</th><th>损益（元）</th></tr></thead><tbody id="stresses"></tbody></table></div></section>
+      </div>
+      <section class="panel action"><div><h2>按比例缩放仓位</h2><p id="action-text"></p></div><button id="apply" class="primary">应用到组合</button></section>
+    </section>
+    <section id="validation" hidden>
+      <div class="panel studio"><div class="section-heading"><div><h2>预测表现</h2><p>2023–2024 年前推评估 · 478 个完整预测日 · QLIKE 越低越好</p></div><label class="inline-label">区块长度<select id="block"><option>10</option><option selected>20</option><option>40</option></select></label></div>
+        <div class="scroll"><table><thead><tr><th>模型</th><th>平均 QLIKE</th><th>相对 EWMA</th><th>95% 区间</th><th>波动率 MAE</th></tr></thead><tbody id="forecast-table"></tbody></table></div><p id="finding" class="finding"></p>
+      </div>
+      <div class="panel studio"><div class="section-heading"><div><h2>组合模拟</h2><p>等权资产构成 · 五日再平衡 · 年化波动率目标 10%</p></div><label class="inline-label">单边成本<select id="cost"><option value="0">0 bps</option><option value="5" selected>5 bps</option><option value="20">20 bps</option></select></label></div>
+        <div class="scroll"><table><thead><tr><th>模型</th><th>累计收益</th><th>年化波动率</th><th>最大回撤</th><th>年化换手</th></tr></thead><tbody id="simulation-table"></tbody></table></div>
+      </div>
+    </section>
+    <footer>数据来源 · Yahoo Finance 历史调整收盘价 <span>历史快照 · 情景损益采用线性重估</span></footer>
+  </main>
+</body>
+</html>
