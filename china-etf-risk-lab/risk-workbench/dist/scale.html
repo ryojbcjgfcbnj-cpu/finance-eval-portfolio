@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111c31">
+  <title>A 股行情与风险扫描</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="scale-snapshot.js"></script>
+  <script defer src="scale.js"></script>
+</head>
+<body>
+  <header class="top"><div class="wrap header"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">◈</span> 组合风控 <small>ETF RISK LAB</small></a><a class="methods" href="index.html">组合审查</a></div></header>
+  <main class="wrap">
+    <section class="hero"><div><h1>A 股行情与风险扫描</h1><p>核对历史数据覆盖，查看个股近期波动与此前基线的差异。</p></div></section>
+    <div class="context"><span><i></i> 已生成的历史扫描</span><span id="period"></span><span id="release"></span></div>
+    <div class="kpis scale-kpis">
+      <article class="panel kpi"><span>真实行情记录</span><strong id="real-rows">—</strong><small id="real-symbols">—</small></article>
+      <article class="panel kpi"><span>增量批次新增</span><strong id="inserted">—</strong><small id="replay">—</small></article>
+      <article class="panel kpi"><span>压测处理量</span><strong id="bench-rows">—</strong><small>真实价格序列复制 · 合成证券 ID</small></article>
+      <article class="panel kpi"><span>DuckDB 查询中位耗时</span><strong id="runtime">—</strong><small id="throughput">—</small></article>
+    </div>
+    <section class="panel studio"><div class="section-heading"><div><h2>风险升幅排名</h2><p id="coverage"></p></div><label class="inline-label">风险比过滤<select id="threshold"><option value="0">全部</option><option value="2">≥ 2.00×</option><option value="2.5">≥ 2.50×</option><option value="3">≥ 3.00×</option></select></label></div>
+      <div class="scroll"><table><thead><tr><th>证券</th><th>近期 20 日波动</th><th>此前 60 日波动</th><th>风险比</th></tr></thead><tbody id="ranks"></tbody></table></div>
+      <p class="finding">风险比衡量近期波动相对于此前波动的倍数。两个窗口互不重叠，存在缺口的窗口不参与排名。</p>
+    </section>
+    <section class="panel studio"><div class="section-heading"><div><h2>数据流水线与性能</h2><p>固定 A 股样本 · 按年分区的 Parquet 快照</p></div></div>
+      <div class="scroll"><table><thead><tr><th>核验项目</th><th>结果</th></tr></thead><tbody id="audit"></tbody></table></div>
+    </section>
+    <footer>数据来源 · Yahoo Finance 历史调整收盘价 <span>固定证券样本 · 历史结果仅反映当前快照</span></footer>
+  </main>
+</body>
+</html>

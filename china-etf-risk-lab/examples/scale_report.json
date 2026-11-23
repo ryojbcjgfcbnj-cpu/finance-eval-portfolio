@@ -1,0 +1,136 @@
+{
+  "real_data": {
+    "rows": 34896,
+    "symbols": 24,
+    "requested_symbols": 24,
+    "dates": [
+      "2019-01-02",
+      "2024-12-31"
+    ],
+    "invalid_close_rows": 0,
+    "source_failures": [],
+    "snapshot_id": "4e3d0576e55e2bc3",
+    "partitions": 6
+  },
+  "ingest": {
+    "initial": {
+      "input_rows": 29088,
+      "inserted_rows": 29088,
+      "seconds": 0.06799450001562946
+    },
+    "increment": {
+      "input_rows": 5808,
+      "inserted_rows": 5808,
+      "seconds": 0.03013129997998476
+    },
+    "replay": {
+      "input_rows": 5808,
+      "inserted_rows": 0,
+      "seconds": 0.020655799977248535
+    }
+  },
+  "scan": {
+    "date": "2024-10-08",
+    "observed": 24,
+    "eligible": 24,
+    "parquet_read_seconds": 0.008791400003246963,
+    "above_1_5": 17,
+    "seconds": 0.045888900000136346,
+    "ranking": [
+      {
+        "symbol": "300750.SZ",
+        "name": "宁德时代",
+        "annual_vol20": 0.8319678922650541,
+        "annual_baseline60": 0.25547746560840057,
+        "risk_ratio": 3.2565216281748546
+      },
+      {
+        "symbol": "600519.SS",
+        "name": "贵州茅台",
+        "annual_vol20": 0.6176987344392174,
+        "annual_baseline60": 0.22611500161948403,
+        "risk_ratio": 2.731790151096243
+      },
+      {
+        "symbol": "000858.SZ",
+        "name": "五粮液",
+        "annual_vol20": 0.689011531923781,
+        "annual_baseline60": 0.25396258772925023,
+        "risk_ratio": 2.7130434371630234
+      },
+      {
+        "symbol": "601318.SS",
+        "name": "中国平安",
+        "annual_vol20": 0.5178183110110902,
+        "annual_baseline60": 0.2048204874534497,
+        "risk_ratio": 2.528156814043208
+      },
+      {
+        "symbol": "600104.SS",
+        "name": "上汽集团",
+        "annual_vol20": 0.4120792594543497,
+        "annual_baseline60": 0.18256101445047054,
+        "risk_ratio": 2.257213900211692
+      },
+      {
+        "symbol": "600111.SS",
+        "name": "北方稀土",
+        "annual_vol20": 0.5226053366320879,
+        "annual_baseline60": 0.24193662515328487,
+        "risk_ratio": 2.1600918682773993
+      },
+      {
+        "symbol": "000538.SZ",
+        "name": "云南白药",
+        "annual_vol20": 0.413673548540226,
+        "annual_baseline60": 0.1953122609350335,
+        "risk_ratio": 2.1180111609983654
+      },
+      {
+        "symbol": "600809.SS",
+        "name": "山西汾酒",
+        "annual_vol20": 0.7417853439809579,
+        "annual_baseline60": 0.3502600851817472,
+        "risk_ratio": 2.117812949186178
+      },
+      {
+        "symbol": "600036.SS",
+        "name": "招商银行",
+        "annual_vol20": 0.3991899375072795,
+        "annual_baseline60": 0.19429352682772755,
+        "risk_ratio": 2.0545714724774418
+      },
+      {
+        "symbol": "600436.SS",
+        "name": "片仔癀",
+        "annual_vol20": 0.5275232466939351,
+        "annual_baseline60": 0.26572484924926565,
+        "risk_ratio": 1.985223618281507
+      }
+    ]
+  },
+  "benchmark": {
+    "rows": 2233344,
+    "series": 1536,
+    "replication_factor": 64,
+    "sql_seconds": [
+      2.3967151999822818,
+      3.0919968000089284,
+      2.9886657999886665
+    ],
+    "pandas_seconds_including_read": [
+      6.909550000011222,
+      6.831649400002789,
+      6.781938000000082
+    ],
+    "sql_median_seconds": 2.9886657999886665,
+    "pandas_median_seconds": 6.831649400002789,
+    "sql_rows_per_second": 747271.2405677708,
+    "results_match": true
+  },
+  "runtime": {
+    "duckdb": "1.4.4",
+    "pandas": "3.0.1",
+    "duckdb_threads": 4
+  }
+}
